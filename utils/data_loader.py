@@ -4,7 +4,6 @@ import os
 def load_dataset(platform):
     filename_map = {
         "Instagram": "instagram_cleaned.csv",
-        "Threads": "threads_cleaned.csv",
     }
 
     filename = filename_map.get(platform)

@@ -16,7 +16,7 @@ from utils.metrics import compute_metrics
 st.set_page_config(page_title="Influencer Optimization App", layout="centered")
 st.title("📱 Aplikasi Pemilihan Influencer Optimal")
 
-platform = st.selectbox("Pilih Platform:", ["Instagram", "Threads"])
+platform = st.selectbox("Pilih Platform:", ["Instagram"])
 
 df = load_dataset(platform)
 niche_options = sorted(df['TOPIC_CATEGORY'].dropna().unique())
