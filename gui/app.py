@@ -22,7 +22,10 @@ df = load_dataset(platform)
 niche_options = sorted(df['TOPIC_CATEGORY'].dropna().unique())
 niche = st.selectbox("Pilih Niche Konten:", niche_options)
 
-budget = st.number_input("Masukkan Budget Maksimal (Rp):", min_value=0)
+min_budget = df['ESTIMATED_COST'].min()
+min_budget_label = f"Masukkan Budget - Minimal: Rp{min_budget:,.0f}".replace(",", ".")
+
+budget = st.number_input(min_budget_label, min_value=0)
 
 compare_mode = st.checkbox("Bandingkan Semua Algoritma")
 
