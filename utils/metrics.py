@@ -1,8 +1,10 @@
-def total_value(selected_indices, values):
-    return sum(values[i] for i in selected_indices)
+def compute_metrics(selected_indices, cost_list, value_list, start_time, end_time):
+    total_cost = sum(cost_list[i] for i in selected_indices)
+    total_value = sum(value_list[i] for i in selected_indices)
+    duration = end_time - start_time
 
-def total_cost(selected_indices, costs):
-    return sum(costs[i] for i in selected_indices)
-
-def efficiency(value, cost):
-    return value / cost if cost > 0 else 0
+    return {
+        "total_cost": total_cost,
+        "total_value": total_value,
+        "duration": duration
+    }
