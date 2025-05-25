@@ -25,6 +25,6 @@ def filter_by_niche(df, niche):
 
 
 def prepare_knapsack_data(df):
-    value = df["BENEFIT_SCORE"].tolist()
+    value = df["ENGAGEMENT"].tolist()
     cost = df["ESTIMATED_COST"].tolist()
     return value, cost

@@ -1,5 +1,6 @@
-def dp_knapsack(costs, values, budget, scale_factor=10000):
-    scaled_costs = [int(c / scale_factor) for c in costs]
+def dp_knapsack(costs, values, budget, scale_factor=1000):
+    # Hindari pembulatan ke nol
+    scaled_costs = [max(1, int(c / scale_factor)) for c in costs]
     scaled_budget = int(budget / scale_factor)
 
     n = len(values)
@@ -7,6 +8,7 @@ def dp_knapsack(costs, values, budget, scale_factor=10000):
 
     dp = [[0] * (W + 1) for _ in range(n + 1)]
 
+    # Bangun tabel DP
     for i in range(1, n + 1):
         for w in range(W + 1):
             if scaled_costs[i - 1] <= w:
@@ -17,6 +19,7 @@ def dp_knapsack(costs, values, budget, scale_factor=10000):
             else:
                 dp[i][w] = dp[i - 1][w]
 
+    # Telusuri kembali item yang dipilih
     selected = []
     w = W
     for i in range(n, 0, -1):

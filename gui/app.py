@@ -60,7 +60,7 @@ if st.button("Jalankan Optimasi"):
                 "Waktu Eksekusi (s)": round(metrics["duration"], 5)
             })
 
-            influencer_results[name] = df_filtered.iloc[selected][['NAME', 'TOPIC_CATEGORY', 'ESTIMATED_COST', 'BENEFIT_SCORE']]
+            influencer_results[name] = df_filtered.iloc[selected][['NAME', 'TOPIC_CATEGORY', 'ESTIMATED_COST', 'ENGAGEMENT']]
 
         df_result = pd.DataFrame(results)
 
@@ -98,7 +98,7 @@ if st.button("Jalankan Optimasi"):
             selected = dp_knapsack(costs, values, budget)
         end_time = time.time()
 
-        df_result = df_filtered.iloc[selected][['NAME', 'TOPIC_CATEGORY', 'ESTIMATED_COST', 'BENEFIT_SCORE']]
+        df_result = df_filtered.iloc[selected][['NAME', 'TOPIC_CATEGORY', 'ESTIMATED_COST', 'ENGAGEMENT']]
         st.subheader("📋 Influencer Terpilih")
         if df_result.empty:
             st.warning("Tidak ada influencer yang dipilih.")
