@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
+from utils.metrics import format_rupiah 
 
 from utils.data_loader import load_dataset, filter_by_niche, prepare_knapsack_data
 from algorithms.greedy import greedy_knapsack
@@ -104,7 +105,7 @@ if st.button("Jalankan Optimasi"):
         metrics = compute_metrics(selected, costs, values, start_time, end_time)
         st.subheader("📊 Statistik")
         st.metric("Total Engagement", f"{metrics['total_value']:.0f}")
-        st.metric("Total Biaya (IDR)", f"{metrics['total_cost']:.0f}")
+        st.metric("Total Biaya (IDR)", format_rupiah(metrics['total_cost']))
         st.metric("Waktu Eksekusi (detik)", f"{metrics['duration']:.4f}")
 
 st.markdown("---")
