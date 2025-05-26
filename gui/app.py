@@ -14,11 +14,9 @@ from algorithms.dynamic_programming import dp_knapsack
 from utils.metrics import compute_metrics
 
 st.set_page_config(page_title="Influencer Optimization App", layout="centered")
-st.title("📱 Aplikasi Pemilihan Influencer Optimal")
+st.title("📱 Aplikasi Pemilihan Influencer Instagram")
 
-platform = st.selectbox("Pilih Platform:", ["Instagram"])
-
-df = load_dataset(platform)
+df = load_dataset("Instagram")
 niche_options = sorted(df['TOPIC_CATEGORY'].dropna().unique())
 niche = st.selectbox("Pilih Niche Konten:", niche_options)
 
